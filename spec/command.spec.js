@@ -16,7 +16,7 @@ describe("Command class", function() {
 describe("Command class", function() {
 
   it("constructor sets command type", function() {
-    let testCommandType = new Command("Fix it!", 10);
+    let testCommandType = new Command("Fix it!");
     expect(testCommandType.commandType).toBe("Fix it!");
   });
 
@@ -25,8 +25,8 @@ describe("Command class", function() {
 describe("Command class", function() {
 
   it("constructor sets a value passed in as the 2nd argument", function() {
-    let testCommandValue = new Command("Fix it!", 10);
-    expect(testCommandValue.value).toBe(10);
+    let testCommandValue = new Command("Fix it!", "brakes");
+    expect(testCommandValue.value).toBe("brakes");
   });
 
 }); 
