@@ -20,3 +20,12 @@ describe("Message class", function() {
     });
   
   });
+
+  describe("Message class", function() {
+
+    it("contains a commands array passed into the constructor as the 2nd argument", function() {
+      let testCommands = new Message("Hi there!", ["Take a coffee break", "Take a lunch break", "knock off for the day, it's late"]);
+      expect(testCommands.commands[2]).toBe("knock off for the day, it's late");
+    });
+  
+  }); 
