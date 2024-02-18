@@ -15,8 +15,8 @@ describe("Message class", function() {
   describe("Message class", function() {
 
     it("constructor sets name", function() {
-      let testName = new Message("Hi there!");
-      expect(testName.name).toBe("Hi there!");
+      let testMessageName = new Message("Hi there!");
+      expect(testMessageName.name).toBe("Hi there!");
     });
   
   });
@@ -24,8 +24,8 @@ describe("Message class", function() {
   describe("Message class", function() {
 
     it("contains a commands array passed into the constructor as the 2nd argument", function() {
-      let testCommands = new Message("Hi there!", ["Take a coffee break", "Take a lunch break", "knock off for the day, it's late"]);
-      expect(testCommands.commands[2]).toBe("knock off for the day, it's late");
+      let testMessageCommands = new Message("Hi there!", ["Take a coffee break!", "Take a lunch break!", "Knock off for the day, it's late!"]);
+      expect(testMessageCommands.commands[2]).toBe("Knock off for the day, it's late!");
     });
   
   }); 
