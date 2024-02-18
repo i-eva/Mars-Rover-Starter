@@ -11,3 +11,12 @@ describe("Message class", function() {
     });
   
   });
+
+  describe("Message class", function() {
+
+    it("constructor sets name", function() {
+      let testName = new Message("Hi there!");
+      expect(testName.name).toBe("Hi there!");
+    });
+  
+  });
