@@ -21,3 +21,12 @@ describe("Command class", function() {
   });
 
 }); 
+
+describe("Command class", function() {
+
+  it("constructor sets a value passed in as the 2nd argument", function() {
+    let testCommandValue = new Command("Fix it!", 10);
+    expect(testCommandValue.value).toBe(10);
+  });
+
+}); 
