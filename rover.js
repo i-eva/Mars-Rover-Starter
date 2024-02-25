@@ -8,10 +8,10 @@ class Rover {
       this.generatorWatts = 110;
    }
    receiveMessage(message) {
-      let response = {
+      let received = {
          message: message.name,
       }
-      return response;
+      return received;
    }
 }
 

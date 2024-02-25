@@ -21,7 +21,8 @@ describe("Rover class", function() {
   it("response returned by receiveMessage contains the name of the message", function() {
     let testReceiveMessage = new Rover(4321);
     let message = new Message('TA power');
-    expect(testReceiveMessage.receiveMessage(message).message).toBe('TA power');
+    let response = testReceiveMessage.receiveMessage(message)
+    expect(response.message).toBe('TA power');
   });
 
 });
