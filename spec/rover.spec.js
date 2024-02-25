@@ -11,9 +11,12 @@ const Command = require('../command.js');
 describe("Rover class", function() {
   it("constructor sets position and default values for mode and generatorWatts", function() {
   // test 7
-  });
+      let testPosition = new Rover(4321);
+      expect(testPosition.position).toBe(4321);
+    });
+  
+  }); 
 
-});
 
 describe("Rover class", function() {
   it("response returned by receiveMessage contains the name of the message", function() {
