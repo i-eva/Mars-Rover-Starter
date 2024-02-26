@@ -16,8 +16,10 @@ class Rover {
                commandResults.push({completed: true, roverStatus: {mode: this.mode, generatorWatts: this.generatorWatts, position: this.position}});
             } else if (cmd.commandType === 'MODE_CHANGE') {
                commandResults.push({completed: true, roverStatus: {mode: 'LOW_POWER', generatorWatts: this.generatorWatts, position: this.position}});
-            }
+            } else if (cmd.commandType === 'MOVE') {
+               commandResults.push({completed: false, roverStatus: {mode: 'LOW_POWER', generatorWatts: this.generatorWatts, position: this.position}});
 
+            }
          }
       }
       let received = {
