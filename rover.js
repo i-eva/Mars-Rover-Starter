@@ -8,9 +8,21 @@ class Rover {
       this.generatorWatts = 110;
    }
    receiveMessage(message) {
+      let commandResults = [];
+      if (message.commands !== undefined) {
+         for (let i = 0; i < (message.commands).length; i++) {
+            let cmd = message.commands[i];
+            if (cmd.commandType === 'STATUS_CHECK') {
+               commandResults.push({completed: true, roverStatus: {mode: this.mode, generatorWatts: this.generatorWatts, position: this.position}})
+            } else {
+
+            }
+
+         }
+      }
       let received = {
          message: message.name,
-         results: message.commands
+         results: commandResults
       }
       return received;
    }

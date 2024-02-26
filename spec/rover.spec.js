@@ -31,8 +31,8 @@ describe("Rover class", function() {
   it("response returned by receiveMessage includes two results if two commands are sent in the message", function() {
     let testReceiveMessage = new Rover(4321);
     let commands = [
-      new Command(4321),
-      new Command(100)
+      new Command('STATUS_CHECK'),
+      new Command('STATUS_CHECK')
     ]
     let message = new Message('TA power', commands);
     let response = testReceiveMessage.receiveMessage(message);
@@ -43,7 +43,13 @@ describe("Rover class", function() {
 
 describe("Rover class", function() {
   it("responds correctly to the status check command", function() {
-  // test 10
+    let testReceiveMessage = new Rover(4321);
+    let commands = [
+      new Command('STATUS_CHECK')
+    ]
+    let message = new Message('TA power', commands);
+    let response = testReceiveMessage.receiveMessage(message);
+    expect(response.results[0]).toStrictEqual({completed: true, roverStatus: {mode: 'NORMAL', generatorWatts: 110, position: 4321}});
   });
 
 });
