@@ -13,9 +13,9 @@ class Rover {
          for (let i = 0; i < (message.commands).length; i++) {
             let cmd = message.commands[i];
             if (cmd.commandType === 'STATUS_CHECK') {
-               commandResults.push({completed: true, roverStatus: {mode: this.mode, generatorWatts: this.generatorWatts, position: this.position}})
-            } else {
-
+               commandResults.push({completed: true, roverStatus: {mode: this.mode, generatorWatts: this.generatorWatts, position: this.position}});
+            } else if (cmd.commandType === 'MODE_CHANGE') {
+               commandResults.push({completed: true, roverStatus: {mode: 'LOW_POWER', generatorWatts: this.generatorWatts, position: this.position}});
             }
 
          }

@@ -56,7 +56,13 @@ describe("Rover class", function() {
 
 describe("Rover class", function() {
   it("responds correctly to the mode change command", function() {
-  // test 11
+    let testReceiveMessage = new Rover(4321);
+    let commands = [
+      new Command('MODE_CHANGE','LOW_POWER')
+    ]
+    let message = new Message('TA power', commands);
+    let response = testReceiveMessage.receiveMessage(message);
+    expect(response.results[0]).toStrictEqual({completed: true, roverStatus: {mode: 'LOW_POWER', generatorWatts: 110, position: 4321}});
   });
 
 });
