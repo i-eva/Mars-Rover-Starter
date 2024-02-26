@@ -21,7 +21,7 @@ describe("Rover class", function() {
   it("response returned by receiveMessage contains the name of the message", function() {
     let testReceiveMessage = new Rover(4321);
     let message = new Message('TA power');
-    let response = testReceiveMessage.receiveMessage(message)
+    let response = testReceiveMessage.receiveMessage(message);
     expect(response.message).toBe('TA power');
   });
 
@@ -29,6 +29,14 @@ describe("Rover class", function() {
 
 describe("Rover class", function() {
   it("response returned by receiveMessage includes two results if two commands are sent in the message", function() {
+    let testReceiveMessage = new Rover(4321);
+    let commands = [
+      new Command(4321),
+      new Command(100)
+    ]
+    let message = new Message('TA power', commands);
+    let response = testReceiveMessage.receiveMessage(message);
+    expect((response.results).length).toBe(2);
   });
 
 });
