@@ -15,10 +15,15 @@ class Rover {
             if (cmd.commandType === 'STATUS_CHECK') {
                commandResults.push({completed: true, roverStatus: {mode: this.mode, generatorWatts: this.generatorWatts, position: this.position}});
             } else if (cmd.commandType === 'MODE_CHANGE') {
-               commandResults.push({completed: true, roverStatus: {mode: 'LOW_POWER', generatorWatts: this.generatorWatts, position: this.position}});
+               commandResults.push({completed: true});
+               this.mode = cmd.value;
             } else if (cmd.commandType === 'MOVE') {
-               commandResults.push({completed: false, roverStatus: {mode: 'LOW_POWER', generatorWatts: this.generatorWatts, position: this.position}});
-
+                  if (this.mode === 'NORMAL') {
+                     this.position = cmd.value;
+                     commandResults.push({completed: true}); 
+                     } else if (this.mode === 'LOW_POWER') {
+                        commandResults.push({completed: false}); 
+                  }
             }
          }
       }
