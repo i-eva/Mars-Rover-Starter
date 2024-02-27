@@ -12,6 +12,8 @@ describe("Rover class", function() {
   it("constructor sets position and default values for mode and generatorWatts", function() {
       let testPosition = new Rover(4321);
       expect(testPosition.position).toBe(4321);
+      expect(testPosition.mode).toBe('NORMAL');
+      expect(testPosition.generatorWatts).toBe(110);
     });
   
   }); 
@@ -63,6 +65,7 @@ describe("Rover class", function() {
     let message = new Message('TA power', commands);
     let response = testReceiveMessage.receiveMessage(message);
     expect(response.results[0]).toStrictEqual({completed: true});
+    expect(testReceiveMessage.mode).toStrictEqual('LOW_POWER');
   });
 
 });
@@ -90,6 +93,7 @@ describe("Rover class", function() {
     let message = new Message('TA power', commands);
     let response = testReceiveMessage.receiveMessage(message);
     expect(response.results[0]).toStrictEqual({completed: true});
+    expect(testReceiveMessage.position).toStrictEqual(3579);
     });
 
   });
